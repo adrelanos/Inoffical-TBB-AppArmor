@@ -1,0 +1,40 @@
+#include <tunables/global>
+
+/usr/bin/vidalia {
+  #include <abstractions/nameservice>
+  #include <abstractions/fonts>
+  #include <abstractions/freedesktop.org>
+  #include <abstractions/dbus-session>
+  #include <abstractions/ibus>
+
+  # We can't use abstractions/base for these because
+  # it conflicts with the ability to launch tor+firefox somehow (??)
+  /etc/ld.so.cache r,
+  /usr/lib/** mr,
+  /lib/** mr,
+  /dev/urandom r,
+  /usr/share/** rk, # Icons, themes, etc
+  /etc/xdg/Trolltech.conf rk,
+  /etc/locale.alias r,
+  /etc/localtime r,
+
+  deny /proc/** r, # Who needs /proc? STFU, plz
+
+  /etc/xdg/sni-qt.conf rk,
+  /tmp/** rwk,
+
+  /etc/ssl/certs/ r,
+  /etc/ssl/certs/** r,
+
+  @{HOME}/.vidalia rw,
+  @{HOME}/.vidalia/** rwmk,
+
+  # XXX: WTF?? Why does vidalia need my xauth???
+  deny @{HOME}/.Xauthority rwmk,
+  deny @{HOME}.ICEauthority rwmk,
+
+  # trolltech
+  deny @{HOME}/.config rw,
+  deny @{HOME}/.config/** rwmk,
+}
+
