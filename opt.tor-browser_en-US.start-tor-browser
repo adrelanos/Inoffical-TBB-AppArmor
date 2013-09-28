@@ -4,7 +4,6 @@
 /opt/tor-browser_en-US/start-tor-browser {
   #include <abstractions/base>
   #include <abstractions/bash>
-  #include <abstractions/ubuntu-konsole>
 
   capability sys_ptrace,
 
@@ -14,20 +13,24 @@
   /bin/grep rix,
   /bin/ps rix,
   /bin/sed rix,
+  /dev/pts/[0-9]* rw,
+  /dev/tty rw,
   /etc/magic r,
   /opt/tor-browser_en-US/App/Firefox/firefox Px,
   /opt/tor-browser_en-US/App/Firefox/firefox-bin mr,
   /opt/tor-browser_en-US/App/tor r,
   /opt/tor-browser_en-US/App/vidalia Px,
   /opt/tor-browser_en-US/start-tor-browser r,
-  /proc/ r,
-  /proc/*/cmdline r,
-  /proc/*/stat r,
-  /proc/*/status r,
-  /proc/meminfo r,
-  /proc/sys/kernel/pid_max r,
-  /proc/tty/drivers r,
-  /proc/uptime r,
+  @{PROC}/ r,
+  @{PROC}/[0-9]*/status r,
+  @{PROC}/[0-9]*/stat r,
+  @{PROC}/[0-9]*/cmdline r,
+  @{PROC}/meminfo r,
+  @{PROC}/sys/kernel/pid_max r,
+  @{PROC}/tty/drivers r,
+  @{PROC}/uptime r,
+  /{,var/}run/utmp r,
+  /dev/ptmx rw,
   /usr/bin/dirname rix,
   /usr/bin/expr rix,
   /usr/bin/file rix,

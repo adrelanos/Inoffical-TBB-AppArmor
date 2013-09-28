@@ -5,7 +5,6 @@
   #include <abstractions/base>
 
 
-
   /dev/dri/card0 rw,
   /etc/X11/cursors/* r,
   /etc/drirc r,
@@ -28,10 +27,10 @@
   /opt/tor-browser_en-US/Data/Vidalia/vidalia.pid rw,
   /opt/tor-browser_en-US/Data/Vidialia/**/ r,
   /opt/tor-browser_en-US/Lib/*.so.* mr,
-  /proc/*/maps r,
-  /proc/filesystems r,
-  /proc/meminfo r,
-  /proc/sys/vm/overcommit_memory r,
+  @{PROC}/[0-9]*/maps r,
+  @{PROC}/filesystems r,
+  @{PROC}/meminfo r,
+  @{PROC}/sys/vm/overcommit_memory r,
   /run/gdm3/** r,
   /sys/devices/system/cpu/ r,
   /usr/lib{,32,64}/** mr,
