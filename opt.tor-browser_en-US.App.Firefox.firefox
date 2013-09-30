@@ -11,6 +11,7 @@
   deny /etc/resolv.conf r,
   deny /etc/host.conf r,
   deny /etc/hosts r,
+  deny /etc/nsswitch.conf r,
 
   /bin/dash rix,
   /dev/dri/card0 rw,
@@ -22,7 +23,6 @@
   /etc/gnome-vfs-2.0/modules/extra-modules.conf r,
   /etc/mailcap r,
   /etc/mime.types r,
-  /etc/nsswitch.conf r,
   /etc/passwd r,
   owner @{HOME}/.config/gtk-2.0/gtkfilechooser.ini r,
   owner @{HOME}/.icons/ r,
