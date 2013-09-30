@@ -12,6 +12,8 @@
   deny /etc/host.conf r,
   deny /etc/hosts r,
   deny /etc/nsswitch.conf r,
+  
+  network tcp,
 
   /bin/dash rix,
   /dev/dri/card0 rw,

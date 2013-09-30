@@ -4,6 +4,9 @@
 /opt/tor-browser_en-US/App/tor {
   #include <abstractions/base>
 
+  network tcp,
+  network udp,
+
   /etc/host.conf r,
   /etc/nsswitch.conf r,
   /etc/passwd r,
