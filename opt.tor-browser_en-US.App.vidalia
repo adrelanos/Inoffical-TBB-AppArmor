@@ -1,0 +1,45 @@
+# Last Modified: Mon Sep  9 15:07:23 2013
+#include <tunables/global>
+
+/opt/tor-browser_en-US/App/vidalia {
+  #include <abstractions/base>
+
+
+  /dev/dri/card0 rw,
+  /etc/X11/cursors/* r,
+  /etc/drirc r,
+  /etc/fonts/** r,
+  owner @{HOME}/.icons/ r,
+  owner @{HOME}/.icons/** r,
+  owner @{HOME}/.local/share/icons/ r,
+  owner @{HOME}/.themes/** r,
+  /opt/tor-browser_en-US/.config/ rw,
+  /opt/tor-browser_en-US/.config/** rwk,
+  /opt/tor-browser_en-US/App/Firefox/firefox Px,
+  /opt/tor-browser_en-US/App/tor rPx,
+  /opt/tor-browser_en-US/App/vidalia mr,
+  /opt/tor-browser_en-US/Data/Tor/* r,
+  /opt/tor-browser_en-US/Data/Tor/**/ r,
+  /opt/tor-browser_en-US/Data/Tor/lock rwk,
+  /opt/tor-browser_en-US/Data/Tor/state rw,
+  /opt/tor-browser_en-US/Data/Tor/state.tmp rw,
+  /opt/tor-browser_en-US/Data/Vidalia/vidalia.conf rwk,
+  /opt/tor-browser_en-US/Data/Vidalia/vidalia.pid rw,
+  /opt/tor-browser_en-US/Data/Vidialia/**/ r,
+  /opt/tor-browser_en-US/Lib/*.so.* mr,
+  @{PROC}/[0-9]*/maps r,
+  @{PROC}/filesystems r,
+  @{PROC}/meminfo r,
+  @{PROC}/sys/vm/overcommit_memory r,
+  /run/gdm3/** r,
+  /sys/devices/system/cpu/ r,
+  /usr/lib{,32,64}/** mr,
+  /usr/share/fonts/** r,
+  /usr/share/icons/ r,
+  /usr/share/icons/** rk,
+  /usr/share/mime/mime.cache r,
+  /usr/share/pixmaps/ r,
+  /usr/share/themes/Default/gtk-2.0-key/gtkrc r,
+  /var/cache/fontconfig/* r,
+
+}
